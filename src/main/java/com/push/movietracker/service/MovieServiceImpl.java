@@ -22,10 +22,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public Movie getMovie(int movieId) {
-        if(movieRepository.findById(movieId).isPresent()){
-            return movieRepository.findById(movieId).orElse(null);
-        }
-        return null;
+        return movieRepository.findById(movieId).orElse(null);
     }
 
     @Override
@@ -39,7 +36,7 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> listOfMovies() {
+    public List<Movie> getAllMovies() {
         List<Movie> movies = new ArrayList<>();
         movieRepository.findAll()
                 .forEach(movies::add);

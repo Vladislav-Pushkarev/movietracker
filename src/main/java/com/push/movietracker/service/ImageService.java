@@ -1,13 +1,12 @@
 package com.push.movietracker.service;
 
 import com.push.movietracker.model.Image;
-import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
-@Service
 public interface ImageService {
-    void addImage(Image image);
+    void addImage(MultipartFile image);
 
     Image getImage(int imageId);
 
