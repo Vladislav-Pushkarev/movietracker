@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <!DOCTYPE HTML>
 <html>
@@ -44,6 +45,15 @@
             <input type="submit" value="Submit" />
         </form>
     </div>
+    <br/><br/>
+    <form method="post" action="/addImage"  enctype="multipart/form-data">
+        <input type="file" name="imageFile" value="select image"/>
+        <input type="submit" value="Submit"/>
+    </form>
+
+    <br/><br/>
+
+
 </div>
 </body>
 

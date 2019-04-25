@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 public interface ImageService {
-    void addImage(MultipartFile image);
+    void addImage(Image image);
 
     Image getImage(int imageId);
 

@@ -1,6 +1,7 @@
 package com.push.movietracker.model;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.util.Arrays;
 
 @Entity

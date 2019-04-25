@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>Movie List</title>
+    <title>Movie</title>
 </head>
 <body>
 <h1>Edit movie: ${movie.title}</h1>
