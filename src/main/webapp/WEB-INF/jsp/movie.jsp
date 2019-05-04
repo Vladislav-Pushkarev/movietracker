@@ -28,11 +28,26 @@
             <td><input type="text" name="description" value="${movie.description}"/></td>
         </tr>
         <tr>
+
             <td>
                 <input type="Submit" name="operation" value="Update"/>
         </tr>
     </table>
 </form>
+<table>
+<tr>
+    <td>image</td>
+    <td>
+        <div align="center">
+            <img src="/imageDisplay?id=${movie.id}"/>
+        </div>
+        <form method="post" action="/addImage/${movie.id}"  enctype="multipart/form-data">
+            <input type="file" name="imageFile" value="select image"/>
+            <input type="submit" value="Submit"/>
+        </form>
+    </td>
+</tr>
+</table>
 </body>
 
 </html>

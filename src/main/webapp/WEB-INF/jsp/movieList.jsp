@@ -51,6 +51,10 @@
         <input type="submit" value="Submit"/>
     </form>
 
+    <div align="center">
+        <img src="data:image/jpg;base64,${image.base64Image}" width="240" height="300"/>
+    </div>
+
     <br/><br/>
 
 
