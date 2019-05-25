@@ -9,10 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Map;
 
 @Controller
 public class MovieController {
@@ -20,15 +20,20 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
-    @RequestMapping(method = RequestMethod.GET, value="/movie/{movieId}")
-    public String  getMovie(@PathVariable int movieId, Model model) {
+    @RequestMapping(method = RequestMethod.GET, value = "/")
+    public String welcome(Map<String, Object> model) {
+        return "welcome";
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/movie/{movieId}")
+    public String getMovie(@PathVariable int movieId, Model model) {
         model.addAttribute("movie", movieService.getMovie(movieId));
 
         return "movie";
     }
 
     @RequestMapping(value = "/imageDisplay", method = RequestMethod.GET)
-    public void showImage(@RequestParam("id") Integer movieId, HttpServletResponse response, HttpServletRequest request) throws IOException{
+    public void showImage(@RequestParam("id") Integer movieId, HttpServletResponse response, HttpServletRequest request) throws IOException {
 
         Movie movie = movieService.getMovie(movieId);
         response.setContentType("image/jpeg, image/jpg, image/png, image/gif");
@@ -56,16 +61,16 @@ public class MovieController {
         movie.setImage(multipartFile.getBytes());
         movieService.updateMovie(movieId, movie);
 
-        return  "redirect:/movieList";
+        return "redirect:/movieList";
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/movie/{movieId}")
-    public String deleteMovie(@PathVariable int movieId){
+    public String deleteMovie(@PathVariable int movieId) {
         movieService.deleteMovie(movieId);
         return "redirect:/movieList";
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = { "/movieList"})
+    @RequestMapping(method = RequestMethod.GET, value = {"/movieList"})
     public String viewMovieList(Model model) {
 
         model.addAttribute("movies", movieService.getAllMovies());

@@ -17,6 +17,4 @@ public interface MovieService {
     List<Movie> getAllMovies();
 
 
-
-
 }
